@@ -88,3 +88,15 @@ When creating templates, we can test their validity via helm commands:
     # We can install all the services similar to above.
 
 We create a separate Helm chart for Redis since it is 3rd party application rather than our own service.
+
+
+## Helmfile
+
+    # We need the command line app to use helmfile
+    helmfile sync
+
+    # Shows all the releases
+    helmfile list
+
+    # To remove the cluster
+    helmfile destroy
