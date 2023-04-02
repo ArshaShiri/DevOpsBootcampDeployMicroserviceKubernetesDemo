@@ -70,3 +70,21 @@ It would be beneficial to be able to define a blueprint for the services and use
 
     # To create a new file
     helm create microservice
+
+When creating templates, we can test their validity via helm commands:
+
+    # helm template -f {name-of-template} {chart-name}
+    helm template -f email-service-values.yaml microservice
+
+    # You can use helm lint to check charts for possible issues
+    # helm lint -f {name-of-template} {chart-name}
+
+    # To deploy the service we use the install command
+    # helm install -f {name-of-template} {release-name} {chart-name}
+    helm template -f email-service-values.yaml emailservice microservice
+    helm ls
+    kubectl get pod
+
+    # We can install all the services similar to above.
+
+We create a separate Helm chart for Redis since it is 3rd party application rather than our own service.
